@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title>PMSanTime Test</title>
+    <style>
+      body {
+        width: 98vw;
+        height: 98vh;
+      }
+
+      #f1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      #form {
+        position: absolute;
+        top: 251px;
+        right: 55px;
+      }
+
+      .input {
+        display: block;
+        margin-bottom: 14px;
+        width: 202px;
+      }
+
+      .button {
+        display: block;
+        margin-top: -15px;
+        padding: 0;
+        font-family: sans-serif;
+        color: white;
+        background: #78be20;
+        font-size: 11px;
+        border: none;
+        width: 205px;
+        height: 20px;
+        text-align: right;
+      }
+    </style>
+    <script>
+      var wow;
+      function getlogin() {
+        wow = f1.document.getElementById("txt_username_login");
+      }
+    </script>
+  </head>
+  <body style="width: 98vw; height: 98vh">
+    <form id="form" action="">
+      <input class="input" type="text" name="uname" />
+      <input class="input" type="text" name="pw" />
+      <input class="button" type="submit" value="- Login -" />
+    </form>
+    <iframe id="f1" src="https://pmsantime.san.org/"></iframe>
+  </body>
+</html>
